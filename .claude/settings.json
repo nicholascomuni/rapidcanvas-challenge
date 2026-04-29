@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:public.api.bsky.app)",
+      "WebSearch",
+      "WebFetch(domain:docs.bsky.app)",
+      "WebFetch(domain:social-media-ethics-automation.github.io)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.tavily.com)",
+      "Bash(npm create *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\nicholas.comuni\\Documents\\Github\\rapidcanva\\backend\\api\\v1",
+      "c:\\Users\\nicholas.comunei\\Documents\\Github\\rapidcanva\\backend\\tests\\eval"
+    ]
+  }
+}

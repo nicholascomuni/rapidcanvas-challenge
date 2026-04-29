@@ -1,0 +1,29 @@
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+*.egg
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Eval output
+backend/tests/eval/eval_report.json
+
+# OS
+.DS_Store
+Thumbs.db
