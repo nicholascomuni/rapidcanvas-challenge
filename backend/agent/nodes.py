@@ -1,107 +1,24 @@
 import asyncio
 import json
-import re
 
-import httpx
 from openai import AsyncOpenAI
 from tavily import TavilyClient
 
 from config import get_settings
 
+from .fetchers import get_fetcher
 from .state import AgentState
-
-_BSKY_BASE = "https://public.api.bsky.app/xrpc"
-_URL_PATTERN = re.compile(
-    r"https?://bsky\.app/profile/(?P<handle>[^/]+)/post/(?P<rkey>[A-Za-z0-9]+"
-    r")"
-)
-
-
-# ---------------------------------------------------------------------------
-# fetch_post_node
-# ---------------------------------------------------------------------------
-
-def _extract_image(post: dict) -> str | None:
-    embed = post.get("embed") or {}
-    embed_type = embed.get("$type", "")
-    if embed_type == "app.bsky.embed.images#view":
-        images = embed.get("images", [])
-        if images:
-            return images[0].get("thumb")
-    if embed_type == "app.bsky.embed.external#view":
-        return embed.get("external", {}).get("thumb")
-    return None
 
 
 async def fetch_post_node(state: AgentState) -> AgentState:
-    url = state["post_url"]
-    m = _URL_PATTERN.match(url)
-    if not m:
-        return {**state, "error": f"Invalid Bluesky URL: {url}"}
-
-    handle = m.group("handle")
-    rkey = m.group("rkey")
-
     try:
-        async with httpx.AsyncClient(timeout=15.0) as client:
-            resolve = await client.get(
-                f"{_BSKY_BASE}/com.atproto.identity.resolveHandle",
-                params={"handle": handle},
-            )
-            if resolve.status_code == 400:
-                return {**state, "error": f"User '@{handle}' not found on Bluesky."}
-            resolve.raise_for_status()
-            did = resolve.json().get("did")
-            if not did:
-                return {**state, "error": "Could not resolve Bluesky handle."}
-
-            at_uri = f"at://{did}/app.bsky.feed.post/{rkey}"
-            thread = await client.get(
-                f"{_BSKY_BASE}/app.bsky.feed.getPostThread",
-                params={"uri": at_uri, "depth": 0},
-            )
-            if thread.status_code == 401:
-                return {**state, "error": "This post requires authentication and cannot be accessed publicly."}
-            if thread.status_code == 403:
-                return {**state, "error": "Access denied: this post belongs to a private or blocked account."}
-            if thread.status_code == 404:
-                return {**state, "error": "Post not found. It may have been deleted or the URL is incorrect."}
-            thread.raise_for_status()
-            thread_data = thread.json()
-
-    except httpx.TimeoutException:
-        return {**state, "error": "Bluesky API timed out. Please try again in a moment."}
-    except httpx.HTTPStatusError as exc:
-        return {**state, "error": f"Bluesky API returned an unexpected error (HTTP {exc.response.status_code})."}
+        fetcher = get_fetcher(state["post_url"])
+        post = await fetcher.fetch(state["post_url"])
     except Exception as exc:
-        return {**state, "error": f"Could not reach Bluesky: {exc}"}
+        return {**state, "error": str(exc)}
 
-    thread_obj = thread_data.get("thread", {})
-    thread_type = thread_obj.get("$type", "")
-    if thread_type == "app.bsky.feed.defs#blockedPost":
-        return {**state, "error": "Access denied: this post belongs to a private or blocked account."}
-    if thread_type == "app.bsky.feed.defs#notFoundPost":
-        return {**state, "error": "Post not found. It may have been deleted or the URL is incorrect."}
+    return {**state, "post_text": post.text, "author": post.author, "image_url": post.image_url, "error": None}
 
-    post = thread_obj.get("post")
-    if not post:
-        return {**state, "error": "Could not parse post data from Bluesky response."}
-
-    record = post.get("record", {})
-    author = post.get("author", {})
-
-    return {
-        **state,
-        "post_text": record.get("text", ""),
-        "author": author.get("handle", handle),
-        "image_url": _extract_image(post),
-        "error": None,
-    }
-
-
-# ---------------------------------------------------------------------------
-# vision_node
-# ---------------------------------------------------------------------------
 
 async def vision_node(state: AgentState) -> AgentState:
     image_url = state.get("image_url")
@@ -133,7 +50,7 @@ async def vision_node(state: AgentState) -> AgentState:
             temperature=0,
         )
         raw = response.choices[0].message.content or ""
-    except Exception as exc:
+    except Exception:
         return {**state, "image_description": None, "image_extracted_text": None}
 
     description: str | None = None
@@ -148,10 +65,6 @@ async def vision_node(state: AgentState) -> AgentState:
 
     return {**state, "image_description": description, "image_extracted_text": extracted_text}
 
-
-# ---------------------------------------------------------------------------
-# analyze_node
-# ---------------------------------------------------------------------------
 
 async def analyze_node(state: AgentState) -> AgentState:
     parts = [state.get("post_text", "")]
@@ -196,10 +109,6 @@ async def analyze_node(state: AgentState) -> AgentState:
     return {**state, "search_queries": queries}
 
 
-# ---------------------------------------------------------------------------
-# search_node
-# ---------------------------------------------------------------------------
-
 async def search_node(state: AgentState) -> AgentState:
     queries = state.get("search_queries", [])
     if not queries:
@@ -240,12 +149,8 @@ async def search_node(state: AgentState) -> AgentState:
                 deduped.append(r)
 
     sources = [r["url"] for r in deduped]
-    return {**state, "search_results": deduped, "sources": sources}
+    return {**state, "search_results": deduped, "sources": sources, "iteration_count": state.get("iteration_count", 0) + 1}
 
-
-# ---------------------------------------------------------------------------
-# synthesize_node
-# ---------------------------------------------------------------------------
 
 async def synthesize_node(state: AgentState) -> AgentState:
     post_text = state.get("post_text", "")

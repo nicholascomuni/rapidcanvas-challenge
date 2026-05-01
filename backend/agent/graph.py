@@ -12,7 +12,6 @@ def should_run_vision(state: AgentState) -> str:
 
 def should_search_more(state: AgentState) -> str:
     if state.get("iteration_count", 0) < 2 and len(state.get("search_results", [])) < 3:
-        state["iteration_count"] = state.get("iteration_count", 0) + 1
         return "search"
     return "synthesize"
 

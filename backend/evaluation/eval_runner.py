@@ -11,8 +11,11 @@ To assert against thresholds, use: pytest tests/test_eval.py
 
 from __future__ import annotations
 
-import truststore
-truststore.inject_into_ssl()
+try:
+    import truststore
+    truststore.inject_into_ssl()
+except ModuleNotFoundError:
+    pass
 
 import argparse
 import asyncio
@@ -41,7 +44,6 @@ def load_cases() -> list[dict]:
 
 
 async def call_explain(base_url: str, url: str) -> dict | None:
-    """Hit the running backend; on failure return None."""
     async with httpx.AsyncClient(timeout=60.0) as client:
         try:
             resp = await client.post(

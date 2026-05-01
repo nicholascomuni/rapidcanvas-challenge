@@ -1,13 +1,21 @@
-import asyncio
 import json
 from pathlib import Path
 
+import httpx
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse, StreamingResponse
 
-from evaluation.eval_runner import evaluate_case, load_cases, run_eval
-from evaluation.judge import llm_conclusion, make_judge_client
-from evaluation.metrics import aggregate_scores
+from evaluation.judge import llm_conclusion, llm_judge, make_judge_client
+from evaluation.metrics import (
+    aggregate_scores,
+    bullet_count_score,
+    bullets_context_similarity,
+    bullets_explanation_similarity,
+    citation_score,
+    evaluation_score,
+    search_query_similarity,
+)
+from evaluation.eval_runner import load_cases
 
 router = APIRouter(tags=["eval"])
 
@@ -39,42 +47,23 @@ async def run_evaluation(body: dict = {}):
         for i, case in enumerate(cases):
             yield send("case_start", {"id": case["id"], "index": i, "total": len(cases)})
 
-            # Patch the explain call to pass the selected model
-            import httpx
-
-            async def call_explain_with_model(url: str) -> dict | None:
-                async with httpx.AsyncClient(timeout=120.0) as client:
-                    try:
-                        resp = await client.post(
-                            f"{base_url}/api/v1/explain",
-                            json={"url": url, "model": model},
-                        )
-                        resp.raise_for_status()
-                        data = resp.json()
-                        data["_live_fetch"] = True
-                        return data
-                    except Exception as exc:
-                        return None
-
-            # Run the case but intercept the HTTP call
-            response = await call_explain_with_model(case["url"])
+            response = None
+            async with httpx.AsyncClient(timeout=120.0) as client:
+                try:
+                    resp = await client.post(
+                        f"{base_url}/api/v1/explain",
+                        json={"url": case["url"], "model": model},
+                    )
+                    resp.raise_for_status()
+                    response = resp.json()
+                except Exception:
+                    pass
 
             if response is None:
                 result = {"id": case["id"], "skipped": True, "live_fetch": False}
                 results.append(result)
-                yield send("case_done", {**result})
+                yield send("case_done", result)
                 continue
-
-            from evaluation.metrics import (
-                aggregate_scores,
-                bullet_count_score,
-                bullets_context_similarity,
-                bullets_explanation_similarity,
-                citation_score,
-                evaluation_score,
-                search_query_similarity,
-            )
-            from evaluation.judge import llm_judge
 
             bullets = response.get("bullets", [])
             bullet_texts = [b.get("text", b) if isinstance(b, dict) else b for b in bullets]
@@ -119,15 +108,12 @@ async def run_evaluation(body: dict = {}):
             results.append(result)
             yield send("case_done", result)
 
-        active = [r for r in results if not r.get("skipped")]
-        agg = aggregate_scores(active)
+        agg = aggregate_scores([r for r in results if not r.get("skipped")])
 
         yield send("conclusion_start", {})
         conclusion = await llm_conclusion(agg, results, client=judge_client)
 
-        report = {"aggregate": agg, "cases": results, "conclusion": conclusion}
-        REPORT_PATH.write_text(json.dumps(report, indent=2))
-
+        REPORT_PATH.write_text(json.dumps({"aggregate": agg, "cases": results, "conclusion": conclusion}, indent=2))
         yield send("done", {"aggregate": agg, "conclusion": conclusion})
 
     return StreamingResponse(event_stream(), media_type="text/event-stream")
