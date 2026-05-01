@@ -1,0 +1,670 @@
+{
+  "aggregate": {
+    "bullets_explanation_similarity": 0.697,
+    "bullets_context_similarity": 0.639,
+    "search_query_similarity": 0.443,
+    "citation": 1.0,
+    "bullet_count": 1.0,
+    "judge_score": 0.669,
+    "evaluation_score": 0.715
+  },
+  "cases": [
+    {
+      "id": "3mko4rvrlh22i",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.8431,
+      "bullets_context_similarity": 0.6182,
+      "search_query_similarity": 0.5051,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.743,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the specific contradiction between Grassley's private question and his public dismissal of similar inquiries."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about internal GOP tensions and Grassley's past controversies lack direct support."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few statements are somewhat abstract and could benefit from more direct citations."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important background about the context of judicial nominees' responses to questions about the election is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some phrasing could be more specific to enhance understanding."
+        },
+        "context_relevance": {
+          "score": 4,
+          "reason": "Most retrieved context is relevant and supports understanding of the post, with only minor noise."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss some of the most important angles, particularly the contradiction aspect."
+        },
+        "judge_score": 0.743
+      },
+      "bullets": [
+        "Senator Chuck Grassley, a Republican from Iowa, was caught on a hot mic questioning why Trump's judicial nominees couldn't simply acknowledge that Joe Biden won the 2020 presidential election. This comment is significant as it highlights internal GOP tensions regarding the 2020 election results and Trump's influence on the party (Source 6).",
+        "Grassley's remark came during a Senate Judiciary Committee hearing, where he serves as the chairman. This context is crucial as it underscores the ongoing scrutiny and political maneuvering surrounding judicial nominations, particularly those associated with former President Trump (Source 1, Source 2).",
+        "The hot mic incident reportedly caused panic among GOP staffers, reflecting the sensitivity and potential repercussions of acknowledging Biden's victory within Republican circles, which have largely been supportive of Trump's unfounded claims of election fraud (Source 6).",
+        "Grassley has previously been involved in controversies over judicial nominations, including his refusal to advance some of Trump's more controversial nominees, indicating his complex position within the party and his occasional divergence from Trump's agenda (Source 1, Source 2).",
+        "The incident is noteworthy as it publicly exposes the private doubts and discussions among Republicans about the 2020 election, which many have been reluctant to voice openly due to Trump's continued influence over the party (Source 6)."
+      ],
+      "post": {
+        "author_handle": "meidastouch.com",
+        "text": "\ud83d\udea8 HOT MIC: Sen. Chuck Grassley (R-IA) was caught asking staff during questioning of Trump judicial nominees: \u201cWhat would be wrong if they said Biden won?\u201d\n\nMultiple people in the room heard it. GOP staffers were reportedly panicking, according to sources familiar.",
+        "image_url": null
+      },
+      "evaluation_score": 0.7727
+    },
+    {
+      "id": "3mko72ez5v22o",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.5247,
+      "bullets_context_similarity": 0.533,
+      "search_query_similarity": 0.7233,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.714,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the specific framing of the WHCD attack as part of a broader pattern of political violence."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some specific details about the incidents involving DHS agents lack direct citation."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few statements could benefit from clearer anchoring to specific sources."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important background about the WHCD and the context of the DHS agents' actions is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some phrasing could be more specific to enhance understanding."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "The retrieved context is somewhat relevant but lacks depth regarding the specific incidents and the broader implications."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss some key angles related to the specific incidents and the media's coverage."
+        },
+        "judge_score": 0.714
+      },
+      "bullets": [
+        "The post criticizes the media's narrow focus on the White House Correspondents' Dinner shooting, suggesting a broader issue of political violence by federal agents, specifically those under the Department of Homeland Security (DHS).",
+        "Recent incidents involving DHS agents, including those from ICE and Border Patrol, have raised concerns about excessive force and racial profiling, with reports of agents killing civilians, such as Renee Good and Alex Pretti, in Minneapolis.",
+        "The White House Correspondents' Dinner shooting, which led to the evacuation of former President Trump, has been widely covered, but the post implies that similar attention should be given to state violence against civilians.",
+        "The post by @premthakker.bsky.social highlights the need for media to address systemic issues of violence by federal law enforcement, which are often overshadowed by high-profile events like the Correspondents' Dinner.",
+        "This commentary reflects ongoing debates about the role of federal law enforcement in political violence and the media's responsibility in covering these issues comprehensively."
+      ],
+      "post": {
+        "author_handle": "zeteo.com",
+        "text": "\"If you want to talk about political violence, DHS... just this year, two of its agents murdered Americans in broad daylight.\"\n\n@premthakker.bsky.social slams the media's myopic view of the White House correspondents\u2019 dinner attack\n\nzeteo.com/p/trump-whcd...",
+        "image_url": null
+      },
+      "evaluation_score": 0.6823
+    },
+    {
+      "id": "3mkiddzlics27",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.779,
+      "bullets_context_similarity": 0.7049,
+      "search_query_similarity": 0.7331,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.714,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the specific mention of Phil Plait as the author and the newsletter context."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some details about the collision probabilities are not clearly sourced."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few could benefit from more direct citations from the post or sources."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important background about Phil Plait and the context of the post is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some could be more engaging."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "The retrieved context is somewhat relevant but lacks specific details about Phil Plait's role and the newsletter."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss some of the most important angles, particularly the newsletter aspect."
+        },
+        "judge_score": 0.714
+      },
+      "bullets": [
+        "The Sombrero Galaxy, also known as Messier 104, is a stunning spiral galaxy located about 30 million light-years from Earth, famous for its bright core and sombrero-like appearance due to its prominent dust lane and halo of light. It has been the subject of recent studies revealing a massive ring structure, or stellar stream, which is likely the remnants of a smaller galaxy absorbed by the Sombrero Galaxy in a past collision [Source 1, Source 2].",
+        "The post humorously suggests taking a break from current events to appreciate the beauty and complexity of the universe, using the Sombrero Galaxy as an example of cosmic wonder resulting from ancient galactic collisions [Source 1, Source 2].",
+        "The mention of the potential collision between the Milky Way and Andromeda galaxies refers to ongoing scientific debates; recent studies have adjusted the probability of such an event, with estimates varying from a 2% to 50% chance over the next 5 billion years [Source 6, Source 7, Source 9].",
+        "The post's light-hearted tone, indicated by the phrase '<waves vaguely> all this,' suggests a playful escape from everyday concerns by contemplating the vastness and beauty of space, a common theme in popular science communication [Source 1, Source 2]."
+      ],
+      "post": {
+        "author_handle": "philplait.bsky.social",
+        "text": "Take a break from <waves vaguely> all this and let your brain soak up the amazingness of the Sombrero Galaxy, the stunning result of several cosmic collisions.\n\n[Also in this issue: will Andromeda really collide with us? The chance just went up.]\n\nbadastronomy.beehiiv.com/p/the-specta...\n\n\ud83d\udd2d \ud83e\uddea",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:6zp4cfbvk6cqi7vf6gzb7ayy/bafkreihptgx2mmnxt3xlxqsdhn2bv5flkoyfdng6aeceimadbafejpn2zq"
+      },
+      "evaluation_score": 0.7838
+    },
+    {
+      "id": "3mkidn6eh3f2x",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.7509,
+      "bullets_context_similarity": 0.8287,
+      "search_query_similarity": 0.7316,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.8,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 5,
+          "reason": "The bullets comprehensively cover the main ideas of the expected explanation, including the treatment's purpose and its significance."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are well-supported by the sources, but there are minor unsupported assertions regarding the treatment's effectiveness."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few could benefit from more direct citations from the sources."
+        },
+        "completeness": {
+          "score": 4,
+          "reason": "The explanation includes most key context about preeclampsia and the treatment, but could elaborate slightly more on the implications of the research."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some phrasing could be simplified for a broader audience."
+        },
+        "context_relevance": {
+          "score": 4,
+          "reason": "The retrieved context is mostly relevant, but some details could be more directly tied to the post."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss some of the most important angles, such as specific studies or the protein involved."
+        },
+        "judge_score": 0.8
+      },
+      "bullets": [
+        "The post discusses a potential new treatment for preeclampsia, a serious pregnancy complication characterized by high blood pressure and potential damage to other organ systems, most often the liver and kidneys. It typically occurs after 20 weeks of pregnancy and can be life-threatening for both mother and child if not managed properly.",
+        "The treatment involves filtering out a harmful protein, sFlt-1, from the blood of pregnant women. Elevated levels of this protein are associated with the symptoms of preeclampsia, and its removal could help alleviate the condition and extend the pregnancy, allowing more time for fetal development.",
+        "This approach is significant because current management of severe preeclampsia often involves premature delivery to protect the health of the mother, which can pose risks to the infant. Extending the pregnancy even by a few days can significantly improve outcomes for premature infants.",
+        "The research is still in early stages, but initial studies, such as those conducted by Cedars-Sinai Health Sciences University, have shown promising results in safely extending pregnancy in women with severe preeclampsia.",
+        "This development could represent a major advancement in maternal-fetal medicine, offering a new way to manage a condition that affects approximately 3-8% of pregnancies worldwide."
+      ],
+      "post": {
+        "author_handle": "sciencenews.bsky.social",
+        "text": "Filtering a protein out of a pregnant person\u2019s blood may help ease a dangerous complication of pregnancy.\nhttps://www.sciencenews.org/article/preeclampsia-treatment-pregnancy-blood",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:mhjqpvjvyzpj4pso7ux2tekh/bafkreie2hukuovwnxmuxr6juiwrl2kermlydhoqmzaqpxzkzl52s4bbt4m"
+      },
+      "evaluation_score": 0.822
+    },
+    {
+      "id": "3mko67wjsxk2e",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.6174,
+      "bullets_context_similarity": 0.6956,
+      "search_query_similarity": 0.4254,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.714,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the sardonic tone and the specific mention of VCs switching political parties."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about the current state of the market are not directly traceable to the post or sources."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few lack direct anchoring to the post text or specific sources."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important background about the crypto market crash and its fading relevance is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though they could be more engaging."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "Some retrieved context is relevant, but it lacks depth and does not fully support the understanding of the post."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss the specific angles related to the decline of the crypto hype cycle."
+        },
+        "judge_score": 0.714
+      },
+      "bullets": [
+        "Initial Coin Offerings (ICOs) were a popular fundraising method for startups around 2017, allowing them to raise capital by selling their own cryptocurrency tokens, often bypassing traditional venture capital routes (Source 2).",
+        "The term 'tokenomics' refers to the economic model behind a cryptocurrency, including factors like token supply, distribution, and utility, which were heavily marketed as revolutionary during the ICO boom (Source 8).",
+        "Venture capitalists (VCs) were initially enthusiastic about ICOs, investing heavily and lobbying against regulatory oversight from bodies like the SEC, which was seen as a threat to the unregulated growth of the crypto market (Source 11).",
+        "The post humorously highlights the decline in ICOs and tokenomics discussions, reflecting how the initial hype has subsided, and regulatory pressures have increased, leading to a quieter market presence (Source 1)."
+      ],
+      "post": {
+        "author_handle": "mims.bsky.social",
+        "text": "Remember when every new tech company had a blockchain and they had \u201dinitial coin offerings\u201d and \u201ctokenomics\u201d was going to eat the economy and VCs switched parties and donated millions just to stop the SEC from regulating it and now you literally never hear a peep about any of it?",
+        "image_url": null
+      },
+      "evaluation_score": 0.7101
+    },
+    {
+      "id": "3mknpj6hudc2q",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.799,
+      "bullets_context_similarity": 0.7735,
+      "search_query_similarity": 0.3899,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.714,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the specific mention of the sarcasm and irony in the post."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about the current state of activism among players lack direct support."
+        },
+        "groundedness": {
+          "score": 3,
+          "reason": "Some bullets reference concrete evidence, but others are vague and do not anchor in specific details from the post or sources."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Important context about the political environment affecting player activism is mentioned but not fully explored."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some phrasing could be more specific to enhance understanding."
+        },
+        "context_relevance": {
+          "score": 4,
+          "reason": "Most retrieved context is relevant, but there is some minor noise that does not directly support the post."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss the most important angles related to the specific political climate and player activism."
+        },
+        "judge_score": 0.714
+      },
+      "bullets": [
+        "The post humorously refers to the concept of 'woke' in the context of the NFL, suggesting that there is only one active player who is socially conscious or 'woke.' This is a play on words, as 'woke' can also mean being awake or active.",
+        "The term 'woke' has been used to describe individuals who are aware of social injustices and actively work towards equality, a concept popularized in the NFL by players like Colin Kaepernick, who famously kneeled during the national anthem to protest racial injustice.",
+        "The post likely alludes to the ongoing debate within the NFL about players' involvement in social justice issues, where some players have been very vocal and active, while others have chosen to remain apolitical or focus solely on their sports careers.",
+        "The significance of the post lies in its critique or satire of the perceived lack of activism among current NFL players, despite the league's efforts like the 'Inspire Change' initiative, which aims to promote social justice and reduce barriers to opportunity.",
+        "This post taps into a broader cultural conversation about the role of athletes in activism, a topic that has been contentious and polarizing, especially in the context of sports being a platform for political and social statements."
+      ],
+      "post": {
+        "author_handle": "fourverts.bsky.social",
+        "text": "the only woke (active) NFL player",
+        "image_url": null
+      },
+      "evaluation_score": 0.7705
+    },
+    {
+      "id": "3mknve75mtc25",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.464,
+      "bullets_context_similarity": 0.1874,
+      "search_query_similarity": 0.083,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.286,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 1,
+          "reason": "The bullets do not address the main ideas of the expected explanation and instead focus on unrelated phrases and general sentiments."
+        },
+        "faithfulness": {
+          "score": 1,
+          "reason": "The claims made in the bullets are not supported by the post text or relevant sources, leading to significant inaccuracies."
+        },
+        "groundedness": {
+          "score": 1,
+          "reason": "The bullets lack concrete evidence from the post or sources, relying instead on vague interpretations."
+        },
+        "completeness": {
+          "score": 1,
+          "reason": "Critical context about TNA Wrestling, Carlos Silva's decisions, and the specific incident is entirely missing."
+        },
+        "clarity": {
+          "score": 3,
+          "reason": "While the bullets are somewhat readable, they are vague and do not clearly convey the specific situation being discussed."
+        },
+        "context_relevance": {
+          "score": 1,
+          "reason": "The retrieved context is irrelevant to the post and does not aid in understanding the specific incident."
+        },
+        "search_query_relevance": {
+          "score": 2,
+          "reason": "The generated queries are too broad and do not effectively target the specific issues raised in the post."
+        },
+        "judge_score": 0.286
+      },
+      "bullets": [
+        "The phrase 'night moves' is often associated with Bob Seger's song of the same name, which refers to activities or changes occurring at night, sometimes with a romantic or secretive connotation [Source 1, Source 3].",
+        "The post likely references a public figure or organization that has been criticized for their actions or decisions, possibly implying they are making moves or decisions that are not well thought out or are done under the cover of darkness [Source 2].",
+        "The phrase 'fly-by-night' is used to describe someone or something that is unreliable or makes sudden, often irresponsible, decisions, which may be the sentiment behind calling someone 'stupid' in the post [Source 2].",
+        "The post's tone suggests frustration or disbelief at the actions of the person being discussed, implying that their decisions are perceived as foolish or lacking foresight [Source 8, Source 9]."
+      ],
+      "post": {
+        "author_handle": "davidbix.bsky.social",
+        "text": "\u201cAnd we\u2019ve had some other folks come at us, and they\u2019ve moved into our nights.\"\n\nOH MY GOD HE REALLY IS THAT STUPID",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:gt3unljcqhimumy5zgosk3gv/bafkreigeli2dzyd2lme3ft6oqcxbjuxiqdsliqpob7wogoldzp7gl7s3g4"
+      },
+      "evaluation_score": 0.428
+    },
+    {
+      "id": "3mkni62yt4s2r",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.6265,
+      "bullets_context_similarity": 0.553,
+      "search_query_similarity": 0.3826,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.743,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the specific prescriptive tone and the notion of reframing the challenge as an opportunity."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about recent Democratic efforts lack direct support."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few are somewhat vague in their connections to the post."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important context about the ongoing debate within Democratic circles is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some could be more specific."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "Some retrieved context is relevant, but it does not fully support the understanding of the post."
+        },
+        "search_query_relevance": {
+          "score": 4,
+          "reason": "The generated queries cover the main angles but could be more targeted towards the specific strategies mentioned in the post."
+        },
+        "judge_score": 0.743
+      },
+      "bullets": [
+        "The post highlights the issue of misinformation influencing voter behavior, particularly in the context of the 2020 U.S. presidential election where misinformation was rampant, affecting perceptions of candidates like Donald Trump and Joe Biden [Source 1, 2, 3].",
+        "The post suggests that Democrats have an opportunity to engage with voters who may have been swayed by misinformation, implying that these voters have been neglected by the party for decades and could be won over with targeted strategies [Source 6, 7].",
+        "Misinformation during the 2020 election was significant, with narratives around COVID-19 and voter fraud being particularly influential among conservative circles, which played a role in shaping voter opinions and decisions [Source 2, 4].",
+        "The post underscores a strategic shift for the Democratic Party, advocating for more aggressive outreach to misinformed voters, which aligns with recent Democratic efforts to enhance voter engagement and address misinformation [Source 6, 10].",
+        "The significance of the post lies in its call to action for Democrats to not view misinformed voters as a lost cause but rather as a demographic that can be engaged and educated to potentially shift voting patterns in future elections [Source 7, 11]."
+      ],
+      "post": {
+        "author_handle": "mtsw.bsky.social",
+        "text": "\"A huge number of American votes are totally misinformed about everything and were convinced to vote for Trump for totally absurd reasons\" is an opportunity, not an intractable problem. Dems need to start aggressively playing the game of winning these voters that they've ignored for decades.",
+        "image_url": null
+      },
+      "evaluation_score": 0.6906
+    },
+    {
+      "id": "3mkoabhwwz22z",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.6796,
+      "bullets_context_similarity": 0.7832,
+      "search_query_similarity": 0.3637,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.486,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 2,
+          "reason": "The bullets focus on the game's background and themes rather than the specific deal alert and details about the post."
+        },
+        "faithfulness": {
+          "score": 3,
+          "reason": "Some claims are plausible but not all are directly supported by the post or relevant sources."
+        },
+        "groundedness": {
+          "score": 2,
+          "reason": "Many bullets lack direct references to the post text or specific evidence, making them feel abstract."
+        },
+        "completeness": {
+          "score": 2,
+          "reason": "Important information about the deal, the affiliate nature of the post, and the specific prices are missing."
+        },
+        "clarity": {
+          "score": 3,
+          "reason": "While the bullets are generally understandable, they lack focus and specificity related to the post."
+        },
+        "context_relevance": {
+          "score": 2,
+          "reason": "The retrieved context does not directly support the understanding of the post's main points."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The queries are reasonable but do not target the most relevant aspects of the deal or the account."
+        },
+        "judge_score": 0.486
+      },
+      "bullets": [
+        "'Umurangi Generation' is a first-person photography game developed by Naphtali Faulkner, a Maori game developer, and is known for its unique gameplay that combines photography with a dystopian narrative set in a futuristic Tauranga, New Zealand. [Source 5, Source 11]",
+        "The game is celebrated for its political commentary, addressing issues such as climate change, neoliberalism, and Indigenous resistance, making it a significant cultural artifact in the realm of video games. [Source 2, Source 3]",
+        "The Deluxe Kit for 'Umurangi Generation' includes additional physical items like an acrylic standee and clear character cards, appealing to collectors and fans of the game. [Source 6, Source 9]",
+        "The game's release on platforms like PS5 and Nintendo Switch with the Deluxe Kit signifies its growing popularity and the demand for physical editions of digital games. [Source 10, Source 8]",
+        "The post is an advertisement for the Deluxe Kit available on Amazon, highlighting the game's expanded content with the Macro DLC, which adds new levels and features to the original game. [Source 8, Source 11]"
+      ],
+      "post": {
+        "author_handle": "wario64.bsky.social",
+        "text": "Umurangi Generation Deluxe Kit (PS5/Switch) is $49.59/$52.40 on Amazon amzn.to/3OKnhoD #ad",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:knj5sw5al3sukl6vhkpi7637/bafkreib4k3oy2jkhst3vlhhqhlnviidppbgz3n5tg6klzevvkbljjvp6xy"
+      },
+      "evaluation_score": 0.6752
+    },
+    {
+      "id": "3mko3he27dk2a",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.7666,
+      "bullets_context_similarity": 0.8239,
+      "search_query_similarity": 0.2935,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.657,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation but miss the adult content aspect and the emoji reference."
+        },
+        "faithfulness": {
+          "score": 3,
+          "reason": "Most claims are plausible, but some details about the book's series status are not directly supported by the sources."
+        },
+        "groundedness": {
+          "score": 3,
+          "reason": "Some bullets reference concrete evidence, but others lack specific grounding in the post or sources."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "Some important context about the adult content creator aspect and the emoji is missing."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are mostly clear and concise, though some phrasing could be more specific."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "The retrieved context is somewhat relevant but lacks focus on the adult content creator aspect."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The generated queries are reasonable but miss the specific angle of the author and the book's promotional context."
+        },
+        "judge_score": 0.657
+      },
+      "bullets": [
+        "The post is promoting a novel titled 'Blood and Roses' by an author using the pseudonym 'Elfie After Dark,' which is set to release on May 20th on Amazon. The website mentioned, elfieafterdark.net, likely contains more information about the book and the author's other works.",
+        "The image with the glowing number '21' above an archway suggests a countdown or significant milestone related to the book's release, possibly indicating 21 days until the launch.",
+        "The hashtags used, such as #Blood&Roses and #writingcommunity, indicate the post is targeting readers and writers interested in creative writing and digital art, aiming to engage with a community that appreciates these themes.",
+        "The novel 'Blood and Roses' seems to be part of a larger series or universe, as indicated by the use of 'Volume 1' in the search results, suggesting an ongoing storyline or thematic series.",
+        "The significance of the post lies in its strategic use of social media and digital marketing to build anticipation and engage potential readers ahead of the book's release date."
+      ],
+      "post": {
+        "author_handle": "elfieafterdark.bsky.social",
+        "text": "21...\n\nYou know the drill! Checkout my website for more info on Blood and Roses, releasing May 20th on Amazon.\n\nelfieafterdark.net\n\n#Blood&Roses #writing #creativewriting #novel #writingcommunity #art #digitalart",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:iansskl7mx4yhpptfmozzoso/bafkreigornpgynr4nf7y4nrvgrjt3kk55csefzyu5mlmhuumzilciq245i"
+      },
+      "evaluation_score": 0.7466
+    },
+    {
+      "id": "3mks5wwkhus2z",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.6629,
+      "bullets_context_similarity": null,
+      "search_query_similarity": null,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.714,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas about the emotional impact of having a happy dog but could be more concise and focused on the specific post."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about the emotional impact could be more directly tied to the post."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but some lack direct anchoring to the post's specific content."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "The explanation is adequate but misses some nuances of the emotional connection expressed in the post."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and understandable, though some could be more concise."
+        },
+        "context_relevance": {
+          "score": 3,
+          "reason": "The retrieved context is somewhat relevant but does not directly enhance understanding of the specific post."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The queries are reasonable but do not fully capture the emotional aspect of the post."
+        },
+        "judge_score": 0.714
+      },
+      "bullets": [
+        "The post highlights the joy and positive impact of having a dog, emphasizing the dog's perpetual happiness as a source of comfort and hope for the owner.",
+        "Dogs have been companions to humans for thousands of years, with domestication dating back over 11,000 years, making them one of the oldest domesticated animals, as noted in multiple studies.",
+        "The relationship between humans and dogs has evolved significantly, with dogs now considered vital family members who provide emotional support and companionship, particularly beneficial for mental health.",
+        "Research shows that owning a dog can reduce stress, anxiety, and depression, and increase levels of oxytocin, dopamine, and serotonin, which are hormones associated with happiness and well-being.",
+        "The post's significance lies in its reflection of the deep bond between humans and dogs, which has been reinforced by scientific studies showing the mental health benefits of pet ownership."
+      ],
+      "post": {
+        "author_handle": "drleonj.bsky.social",
+        "text": "It\u2019s hard to fall entirely into despair when you live with a dog who is perpetually this happy!",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:x5l4kbf5viqpewfma77pmmex/bafkreidbjl4gzponiwye74mnlyvig7uynn33ewx2cbrq6lwaxgplb5dia4"
+      },
+      "evaluation_score": 0.7663
+    },
+    {
+      "id": "3mknexmgu2k22",
+      "live_fetch": true,
+      "skipped": false,
+      "bullets_explanation_similarity": 0.8549,
+      "bullets_context_similarity": 0.5285,
+      "search_query_similarity": 0.2364,
+      "citation": 1.0,
+      "bullet_count": 1.0,
+      "judge_score": 0.743,
+      "judge_detail": {
+        "explanation_relevance": {
+          "score": 4,
+          "reason": "The bullets cover most key ideas from the expected explanation, but they could more explicitly connect the humor of the post to the whimsical art style."
+        },
+        "faithfulness": {
+          "score": 4,
+          "reason": "Most claims are supported by the sources, but some assertions about folklore could use stronger backing."
+        },
+        "groundedness": {
+          "score": 4,
+          "reason": "Most bullets reference concrete evidence, but a few could be more directly tied to the post or image."
+        },
+        "completeness": {
+          "score": 3,
+          "reason": "The explanation lacks some important context about Sarah Graham's specific artistic style and how it relates to the post."
+        },
+        "clarity": {
+          "score": 4,
+          "reason": "The bullets are generally clear and concise, though some could be more engaging."
+        },
+        "context_relevance": {
+          "score": 4,
+          "reason": "The retrieved context about Sarah Graham is relevant, but it could be more specific to her style and its connection to the post."
+        },
+        "search_query_relevance": {
+          "score": 3,
+          "reason": "The queries are reasonable but miss the most direct angle of searching for Sarah Graham specifically related to this post."
+        },
+        "judge_score": 0.743
+      },
+      "bullets": [
+        "The post humorously captures the common fantasy of escaping modern life by retreating into nature and becoming part of local folklore, a theme often explored in stories and myths about forests and their mysterious allure (Source 1).",
+        "The image of a mouse in a cloak using a mushroom as an umbrella adds a whimsical and enchanting element, reminiscent of the anthropomorphized animals frequently found in folklore and fairy tales (Source 6).",
+        "Sarah Graham, the artist credited in the post, is known for her vibrant and detailed paintings, often featuring whimsical and surreal elements, which align with the fantastical theme of the post (Source 11).",
+        "Forests have long been depicted in folklore as places of mystery and transformation, where one might encounter mythical creatures or undergo personal change, making the idea of becoming 'local folklore' both intriguing and humorous (Source 1)."
+      ],
+      "post": {
+        "author_handle": "titaniasrealm.bsky.social",
+        "text": "When you finally give in to the urge to disappear into the woods and become local folklore\n\n\ud83c\udfa8 Sarah Graham",
+        "image_url": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:p32pqknh5qh7yjpylmzlgnqo/bafkreiezaxqeldu4fgi22irgpwxlgaavapy4fhukybwqpxfnofjfiyvi2i"
+      },
+      "evaluation_score": 0.7352
+    }
+  ],
+  "conclusion": "The overall performance of the AI agent is moderate, with an evaluation score of 0.715 indicating room for improvement. The strongest dimensions are explanation relevance and faithfulness, both consistently rated highly across cases, demonstrating the agent's ability to provide relevant and accurate explanations. However, the weakest dimensions are search query relevance and groundedness, which likely struggle due to a lack of contextual understanding and specificity in addressing user queries. To enhance performance, the AI agent should focus on improving its contextual awareness and the ability to relate explanations directly to the user's search intent, possibly by incorporating more diverse training data that emphasizes these aspects."
+}

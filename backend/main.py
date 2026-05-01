@@ -6,9 +6,17 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from core.config import get_settings
-from core.exceptions import AppError
-from api.v1.routers.explain import router as explain_router
+from config import get_settings
+from api.explain import router as explain_router
+from api.eval import router as eval_router
+
+
+class AppError(Exception):
+    def __init__(self, message: str, status_code: int = 500):
+        super().__init__(message)
+        self.message = message
+        self.status_code = status_code
+
 
 settings = get_settings()
 
@@ -29,6 +37,7 @@ async def app_error_handler(request: Request, exc: AppError) -> JSONResponse:
 
 
 app.include_router(explain_router, prefix="/api/v1")
+app.include_router(eval_router, prefix="/api/v1")
 
 
 @app.get("/health")

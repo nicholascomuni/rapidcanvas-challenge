@@ -5,7 +5,7 @@ import json
 
 from openai import AsyncOpenAI
 
-from core.config import get_settings
+from config import get_settings
 
 _JUDGE_SYSTEM = """\
 You are a strict, impartial evaluator of AI-generated explanations of social media posts.

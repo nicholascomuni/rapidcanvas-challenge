@@ -6,7 +6,7 @@ import httpx
 from openai import AsyncOpenAI
 from tavily import TavilyClient
 
-from core.config import get_settings
+from config import get_settings
 
 from .state import AgentState
 
@@ -119,7 +119,7 @@ async def vision_node(state: AgentState) -> AgentState:
 
     try:
         response = await client.chat.completions.create(
-            model="gpt-4o",
+            model=state.get("model", "gpt-4o"),
             messages=[
                 {
                     "role": "user",
@@ -270,7 +270,7 @@ async def synthesize_node(state: AgentState) -> AgentState:
 
     try:
         response = await client.chat.completions.create(
-            model="gpt-4o",
+            model=state.get("model", "gpt-4o"),
             messages=[
                 {
                     "role": "system",

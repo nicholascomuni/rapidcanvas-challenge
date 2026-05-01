@@ -13,4 +13,5 @@ class AgentState(TypedDict):
     bullets: list[str]
     sources: list[str]
     iteration_count: int
+    model: str
     error: str | None

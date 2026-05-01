@@ -2,7 +2,7 @@
 
 import os
 import pytest
-from tests.eval.eval_runner import run_eval
+from evaluation.eval_runner import run_eval
 
 BASE_URL = os.getenv("EVAL_BASE_URL", "http://localhost:8000")
 
@@ -25,7 +25,7 @@ async def test_eval_explanation_similarity():
     actual = agg.get("bullets_explanation_similarity", 0)
     assert actual >= EXPLANATION_SIM_THRESHOLD, (
         f"Mean explanation similarity {actual:.3f} below threshold {EXPLANATION_SIM_THRESHOLD}"
-        " — check eval_report.json"
+        " — check evaluation/eval_report.json"
     )
 
 
@@ -38,7 +38,7 @@ async def test_eval_context_similarity():
         pytest.skip("No cases with non-empty relevant_context")
     assert actual >= CONTEXT_SIM_THRESHOLD, (
         f"Mean context similarity {actual:.3f} below threshold {CONTEXT_SIM_THRESHOLD}"
-        " — check eval_report.json"
+        " — check evaluation/eval_report.json"
     )
 
 
@@ -51,7 +51,7 @@ async def test_eval_search_query_similarity():
         pytest.skip("No cases with expected_search_queries")
     assert actual >= SEARCH_QUERY_SIM_THRESHOLD, (
         f"Mean search query similarity {actual:.3f} below threshold {SEARCH_QUERY_SIM_THRESHOLD}"
-        " — check eval_report.json"
+        " — check evaluation/eval_report.json"
     )
 
 
@@ -62,7 +62,7 @@ async def test_eval_citation():
     actual = agg.get("citation", 0)
     assert actual >= CITATION_THRESHOLD, (
         f"Mean citation score {actual:.3f} below threshold {CITATION_THRESHOLD}"
-        " — check eval_report.json"
+        " — check evaluation/eval_report.json"
     )
 
 
@@ -73,5 +73,5 @@ async def test_eval_judge_score():
     actual = agg.get("judge_score", 0)
     assert actual >= JUDGE_SCORE_THRESHOLD, (
         f"Mean judge score {actual:.3f} below threshold {JUDGE_SCORE_THRESHOLD}"
-        " — check eval_report.json"
+        " — check evaluation/eval_report.json"
     )
