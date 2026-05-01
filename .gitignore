@@ -27,3 +27,6 @@ backend/tests/eval/eval_report.json
 # OS
 .DS_Store
 Thumbs.db
+
+challenge_description.md
+RC_assignment.pdf

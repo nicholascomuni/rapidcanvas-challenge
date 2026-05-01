@@ -19,14 +19,12 @@ def test_coverage_empty_topics():
     assert coverage_score(["anything"], []) == 1.0
 
 
-def test_citation_all_cited():
-    bullets = [{"citations": [{"index": 1}]}, {"citations": [{"index": 2}]}]
-    assert citation_score(bullets) == 1.0
+def test_citation_has_sources():
+    assert citation_score(["https://example.com", "https://other.com"]) == 1.0
 
 
-def test_citation_none_cited():
-    bullets = [{"citations": []}, {"citations": []}]
-    assert citation_score(bullets) == 0.0
+def test_citation_no_sources():
+    assert citation_score([]) == 0.0
 
 
 def test_hallucination_clean():

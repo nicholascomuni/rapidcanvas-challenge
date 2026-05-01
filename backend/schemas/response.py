@@ -15,3 +15,4 @@ class ExplainResponse(BaseModel):
     post: PostMeta
     bullets: list[BulletPoint]
     sources: list[str]
+    search_queries: list[str] = []
