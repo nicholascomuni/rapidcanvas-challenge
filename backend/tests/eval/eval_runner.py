@@ -1,17 +1,18 @@
 """
 Evaluation harness for the Bluesky Post Explainer.
 
-Usage:
+Usage (standalone — just metrics, no pass/fail):
     cd backend
     python -m tests.eval.eval_runner [--url http://localhost:8000]
 
-Or as pytest:
-    pytest tests/eval/test_eval.py
-
-Exit code: 0 if all thresholds pass, 1 otherwise.
+Exit code: 0 always when run standalone (metrics only).
+To assert against thresholds, use: pytest tests/eval/test_eval.py
 """
 
 from __future__ import annotations
+
+import truststore
+truststore.inject_into_ssl()
 
 import argparse
 import asyncio
@@ -21,7 +22,7 @@ from pathlib import Path
 
 import httpx
 
-from tests.eval.judge import llm_judge
+from tests.eval.judge import llm_judge, make_judge_client
 from tests.eval.metrics import (
     aggregate_scores,
     bullet_count_score,
@@ -31,9 +32,6 @@ from tests.eval.metrics import (
 )
 
 CASES_PATH = Path(__file__).parent / "cases.json"
-COVERAGE_THRESHOLD = 0.6
-CITATION_THRESHOLD = 0.6
-HALLUCINATION_THRESHOLD = 1.0  # must be clean
 
 
 def load_cases() -> list[dict]:
@@ -41,7 +39,7 @@ def load_cases() -> list[dict]:
 
 
 async def call_explain(base_url: str, url: str, cached_text: str) -> dict | None:
-    """Hit the running backend; on failure return a stub with cached post text."""
+    """Hit the running backend; on failure return None."""
     async with httpx.AsyncClient(timeout=60.0) as client:
         try:
             resp = await client.post(
@@ -57,7 +55,7 @@ async def call_explain(base_url: str, url: str, cached_text: str) -> dict | None
             return None
 
 
-async def evaluate_case(base_url: str, case: dict) -> dict:
+async def evaluate_case(base_url: str, case: dict, judge_client) -> dict:
     print(f"\n[{case['id']}] {case['description']}")
 
     response = await call_explain(base_url, case["url"], case["post_text"])
@@ -69,16 +67,16 @@ async def evaluate_case(base_url: str, case: dict) -> dict:
 
     bullets = response.get("bullets", [])
     bullet_texts = [b.get("text", "") for b in bullets]
-    search_results = response.get("search_results", [])
+    sources = response.get("sources", [])
 
     cov = coverage_score(bullet_texts, case.get("expected_topics", []))
-    cit = citation_score(bullets)
+    cit = citation_score(sources)
     hal = hallucination_score(bullet_texts, case.get("must_not_contain", []))
     cnt = bullet_count_score(len(bullets), case.get("min_bullets", 1), case.get("max_bullets", 5))
 
     print(f"  coverage={cov:.2f}  citation={cit:.2f}  hallucination={hal:.2f}  count={cnt:.2f}")
 
-    judge = await llm_judge(case["post_text"], bullets, search_results)
+    judge = await llm_judge(case["post_text"], bullets, sources, client=judge_client)
     print(f"  judge_score={judge.get('judge_score', 0):.2f}  reasoning: {judge.get('reasoning', '')}")
 
     return {
@@ -95,11 +93,13 @@ async def evaluate_case(base_url: str, case: dict) -> dict:
     }
 
 
-async def run(base_url: str) -> int:
+async def run_eval(base_url: str) -> dict:
+    """Run all eval cases and return raw results. No threshold checking."""
     cases = load_cases()
+    judge_client = make_judge_client()
     results = []
     for case in cases:
-        result = await evaluate_case(base_url, case)
+        result = await evaluate_case(base_url, case, judge_client)
         results.append(result)
 
     active = [r for r in results if not r.get("skipped")]
@@ -111,37 +111,19 @@ async def run(base_url: str) -> int:
     for k, v in agg.items():
         print(f"  {k:<20} {v:.3f}")
 
-    # Determine pass/fail
-    passed = True
-    if agg.get("coverage", 0) < COVERAGE_THRESHOLD:
-        print(f"\nFAIL: mean coverage {agg.get('coverage', 0):.3f} < threshold {COVERAGE_THRESHOLD}")
-        passed = False
-    if agg.get("citation", 0) < CITATION_THRESHOLD:
-        print(f"FAIL: mean citation {agg.get('citation', 0):.3f} < threshold {CITATION_THRESHOLD}")
-        passed = False
-    any_hallucination = any(r.get("hallucination", 1.0) < HALLUCINATION_THRESHOLD for r in active)
-    if any_hallucination:
-        failing = [r["id"] for r in active if r.get("hallucination", 1.0) < HALLUCINATION_THRESHOLD]
-        print(f"FAIL: hallucinations detected in cases: {failing}")
-        passed = False
-
     report_path = Path(__file__).parent / "eval_report.json"
     report_path.write_text(json.dumps({"aggregate": agg, "cases": results}, indent=2))
     print(f"\nFull report written to: {report_path}")
 
-    if passed:
-        print("\nPASSED ✓")
-        return 0
-    else:
-        print("\nFAILED ✗")
-        return 1
+    return {"aggregate": agg, "cases": results}
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run eval harness")
+    parser = argparse.ArgumentParser(description="Run eval harness (metrics only, no thresholds)")
     parser.add_argument("--url", default="http://localhost:8000", help="Backend base URL")
     args = parser.parse_args()
-    sys.exit(asyncio.run(run(args.url)))
+    asyncio.run(run_eval(args.url))
+    sys.exit(0)
 
 
 if __name__ == "__main__":

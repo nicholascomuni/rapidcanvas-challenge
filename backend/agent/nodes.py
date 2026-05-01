@@ -48,6 +48,8 @@ async def fetch_post_node(state: AgentState) -> AgentState:
                 f"{_BSKY_BASE}/com.atproto.identity.resolveHandle",
                 params={"handle": handle},
             )
+            if resolve.status_code == 400:
+                return {**state, "error": f"User '@{handle}' not found on Bluesky."}
             resolve.raise_for_status()
             did = resolve.json().get("did")
             if not did:
@@ -58,13 +60,30 @@ async def fetch_post_node(state: AgentState) -> AgentState:
                 f"{_BSKY_BASE}/app.bsky.feed.getPostThread",
                 params={"uri": at_uri, "depth": 0},
             )
+            if thread.status_code == 401:
+                return {**state, "error": "This post requires authentication and cannot be accessed publicly."}
+            if thread.status_code == 403:
+                return {**state, "error": "Access denied: this post belongs to a private or blocked account."}
+            if thread.status_code == 404:
+                return {**state, "error": "Post not found. It may have been deleted or the URL is incorrect."}
             thread.raise_for_status()
             thread_data = thread.json()
 
+    except httpx.TimeoutException:
+        return {**state, "error": "Bluesky API timed out. Please try again in a moment."}
+    except httpx.HTTPStatusError as exc:
+        return {**state, "error": f"Bluesky API returned an unexpected error (HTTP {exc.response.status_code})."}
     except Exception as exc:
-        return {**state, "error": f"Bluesky fetch failed: {exc}"}
+        return {**state, "error": f"Could not reach Bluesky: {exc}"}
 
-    post = thread_data.get("thread", {}).get("post")
+    thread_obj = thread_data.get("thread", {})
+    thread_type = thread_obj.get("$type", "")
+    if thread_type == "app.bsky.feed.defs#blockedPost":
+        return {**state, "error": "Access denied: this post belongs to a private or blocked account."}
+    if thread_type == "app.bsky.feed.defs#notFoundPost":
+        return {**state, "error": "Post not found. It may have been deleted or the URL is incorrect."}
+
+    post = thread_obj.get("post")
     if not post:
         return {**state, "error": "Could not parse post data from Bluesky response."}
 

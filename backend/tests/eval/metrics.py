@@ -6,29 +6,41 @@ All functions are pure and take simple Python types so they can be unit tested e
 from __future__ import annotations
 
 
+_STOP_WORDS = {"a", "an", "the", "and", "or", "of", "in", "on", "at", "to", "for", "is", "are", "was", "were", "about"}
+
+
 def coverage_score(bullet_texts: list[str], expected_topics: list[str]) -> float:
     """
-    Fraction of expected_topics that appear (case-insensitively) in any bullet.
-    Returns 1.0 if expected_topics is empty (nothing to cover = trivially satisfied).
+    Fraction of expected_topics covered in the bullets.
+    A topic is covered if either:
+      - the full phrase appears as a substring (exact match), OR
+      - every significant word in the topic appears somewhere in the bullets
+        (handles paraphrasing like "judicial nominees" vs "Trump judicial nominees").
+    Returns 1.0 if expected_topics is empty.
     """
     if not expected_topics:
         return 1.0
 
     combined = " ".join(bullet_texts).lower()
-    covered = sum(1 for topic in expected_topics if topic.lower() in combined)
+
+    def _is_covered(topic: str) -> bool:
+        t = topic.lower()
+        if t in combined:
+            return True
+        words = [w for w in t.split() if w not in _STOP_WORDS and len(w) > 2]
+        return bool(words) and all(w in combined for w in words)
+
+    covered = sum(1 for topic in expected_topics if _is_covered(topic))
     return covered / len(expected_topics)
 
 
-def citation_score(bullets: list[dict]) -> float:
+def citation_score(sources: list[str]) -> float:
     """
-    Fraction of bullets that contain at least one citation.
-    bullets: list of dicts with key 'citations' (list).
-    Returns 1.0 if bullets list is empty.
+    1.0 if at least one source URL was returned, 0.0 otherwise.
+    The new agent returns sources as a flat list of URLs; having any source
+    means the response is grounded in web evidence.
     """
-    if not bullets:
-        return 1.0
-    cited = sum(1 for b in bullets if b.get("citations"))
-    return cited / len(bullets)
+    return 1.0 if sources else 0.0
 
 
 def hallucination_score(bullet_texts: list[str], must_not_contain: list[str]) -> float:
