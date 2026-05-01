@@ -5,56 +5,82 @@ All functions are pure and take simple Python types so they can be unit tested e
 
 from __future__ import annotations
 
+import numpy as np
+from sentence_transformers import SentenceTransformer
+from scipy.optimize import linear_sum_assignment
 
-_STOP_WORDS = {"a", "an", "the", "and", "or", "of", "in", "on", "at", "to", "for", "is", "are", "was", "were", "about"}
+_model: SentenceTransformer | None = None
 
 
-def coverage_score(bullet_texts: list[str], expected_topics: list[str]) -> float:
+def _get_model() -> SentenceTransformer:
+    global _model
+    if _model is None:
+        _model = SentenceTransformer("all-MiniLM-L6-v2")
+    return _model
+
+
+def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+    norm_a = np.linalg.norm(a)
+    norm_b = np.linalg.norm(b)
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+    return float(np.dot(a, b) / (norm_a * norm_b))
+
+
+def bullets_explanation_similarity(bullet_texts: list[str], explanation: str) -> float:
+    """Cosine similarity between concatenated bullets and the expected explanation."""
+    if not bullet_texts or not explanation:
+        return 0.0
+    model = _get_model()
+    bullets_combined = " ".join(bullet_texts)
+    embs = model.encode([bullets_combined, explanation])
+    return round(_cosine_similarity(embs[0], embs[1]), 4)
+
+
+def bullets_context_similarity(bullet_texts: list[str], relevant_context: str) -> float | None:
+    """Cosine similarity between concatenated bullets and relevant_context. None if context is empty."""
+    if not relevant_context or not relevant_context.strip():
+        return None
+    if not bullet_texts:
+        return 0.0
+    model = _get_model()
+    bullets_combined = " ".join(bullet_texts)
+    embs = model.encode([bullets_combined, relevant_context])
+    return round(_cosine_similarity(embs[0], embs[1]), 4)
+
+
+def search_query_similarity(
+    generated_queries: list[str],
+    expected_queries: list[str],
+) -> float | None:
     """
-    Fraction of expected_topics covered in the bullets.
-    A topic is covered if either:
-      - the full phrase appears as a substring (exact match), OR
-      - every significant word in the topic appears somewhere in the bullets
-        (handles paraphrasing like "judicial nominees" vs "Trump judicial nominees").
-    Returns 1.0 if expected_topics is empty.
+    Hungarian-matched cosine similarity between generated and expected search queries.
+    Penalises over- or under-generation via max(N, M) denominator.
+    Returns None if expected_queries is empty.
     """
-    if not expected_topics:
-        return 1.0
+    if not expected_queries:
+        return None
+    if not generated_queries:
+        return 0.0
 
-    combined = " ".join(bullet_texts).lower()
+    model = _get_model()
+    gen_embs = model.encode(generated_queries)
+    exp_embs = model.encode(expected_queries)
 
-    def _is_covered(topic: str) -> bool:
-        t = topic.lower()
-        if t in combined:
-            return True
-        words = [w for w in t.split() if w not in _STOP_WORDS and len(w) > 2]
-        return bool(words) and all(w in combined for w in words)
+    n, m = len(generated_queries), len(expected_queries)
+    sim_matrix = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            sim_matrix[i, j] = _cosine_similarity(gen_embs[i], exp_embs[j])
 
-    covered = sum(1 for topic in expected_topics if _is_covered(topic))
-    return covered / len(expected_topics)
+    row_ind, col_ind = linear_sum_assignment(-sim_matrix)
+    matched_sum = sum(sim_matrix[r, c] for r, c in zip(row_ind, col_ind))
+    return round(matched_sum / max(n, m), 4)
 
 
 def citation_score(sources: list[str]) -> float:
-    """
-    1.0 if at least one source URL was returned, 0.0 otherwise.
-    The new agent returns sources as a flat list of URLs; having any source
-    means the response is grounded in web evidence.
-    """
+    """1.0 if at least one source URL was returned, 0.0 otherwise."""
     return 1.0 if sources else 0.0
-
-
-def hallucination_score(bullet_texts: list[str], must_not_contain: list[str]) -> float:
-    """
-    Returns 1.0 (clean) if none of must_not_contain strings appear in any bullet.
-    Returns 0.0 (hallucination detected) if any forbidden string is found.
-    """
-    if not must_not_contain:
-        return 1.0
-    combined = " ".join(bullet_texts).lower()
-    for forbidden in must_not_contain:
-        if forbidden.lower() in combined:
-            return 0.0
-    return 1.0
 
 
 def bullet_count_score(num_bullets: int, min_bullets: int, max_bullets: int) -> float:
@@ -63,12 +89,20 @@ def bullet_count_score(num_bullets: int, min_bullets: int, max_bullets: int) -> 
 
 
 def aggregate_scores(results: list[dict]) -> dict:
-    """Compute mean across all cases for each metric."""
+    """Compute mean across all cases for each numeric metric, skipping None values."""
     if not results:
         return {}
-    keys = ["coverage", "citation", "hallucination", "bullet_count", "judge_score"]
-    return {
-        k: round(sum(r.get(k, 0) for r in results) / len(results), 3)
-        for k in keys
-        if any(k in r for r in results)
-    }
+    keys = [
+        "bullets_explanation_similarity",
+        "bullets_context_similarity",
+        "search_query_similarity",
+        "citation",
+        "bullet_count",
+        "judge_score",
+    ]
+    out = {}
+    for k in keys:
+        values = [r[k] for r in results if k in r and r[k] is not None]
+        if values:
+            out[k] = round(sum(values) / len(values), 3)
+    return out

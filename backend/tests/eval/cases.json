@@ -1,125 +1,110 @@
 [
   {
-    "id": "tc-001",
-    "description": "Political hot mic moment - Senator Grassley caught questioning election results",
+    "id": "3mko4rvrlh22i",
     "url": "https://bsky.app/profile/meidastouch.com/post/3mko4rvrlh22i",
-    "post_text": "🚨 HOT MIC: Sen. Chuck Grassley (R-IA) was caught asking staff during questioning of Trump judicial nominees: \"What would be wrong if they said Biden won?\" Multiple people in the room heard it. GOP staffers were reportedly panicking, according to sources familiar.",
-    "expected_topics": ["Chuck Grassley", "hot mic", "Trump judicial nominees", "2020 election", "GOP reaction"],
-    "expected_entities": ["Chuck Grassley", "Iowa", "Biden", "Trump", "Republican"],
-    "must_not_contain": ["Chuck Grassley is a Democrat", "Grassley supports Biden"],
+    "explanation": "The post reports a politically significant hot mic moment during a Senate Judiciary Committee hearing: Senator Chuck Grassley (R-IA), who chairs the committee, was overheard asking his own staff why Trump's judicial nominees won't simply acknowledge that Biden won the 2020 election. This is notable because Grassley has publicly dismissed Democrats asking nominees the exact same question as 'political theater.' The contradiction between his private question and his public stance is the core of the story. GOP staffers reportedly panicked after realizing it was caught on mic.",
+    "relevant_context": "Throughout Trump's second term, his judicial nominees have consistently refused to plainly state that Biden won the 2020 election during Senate confirmation hearings. Senator Richard Blumenthal (D-CT) routinely asks nominees this question. Nominees typically respond with evasive phrasing like Biden was 'certified' or 'served' as president — wording that avoids acknowledging Biden actually won. Grassley had previously criticized Democrats for asking this question, calling it political theater. His hot mic moment directly contradicts that public stance. MeidasTouch is a progressive media outlet known for amplifying politically damaging moments for Republicans.",
+    "expected_search_queries": ["Chuck Grassley hot mic Biden won", "Trump judicial nominees 2020 election", "Senate Judiciary Committee hearing 2026"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-002",
-    "description": "Zeteo media post criticizing coverage of WHCD attack and DHS political violence",
+    "id": "3mko72ez5v22o",
     "url": "https://bsky.app/profile/zeteo.com/post/3mko72ez5v22o",
-    "post_text": "\"If you want to talk about political violence, DHS... just this year, two of its agents murdered Americans in broad daylight.\" @premthakker.bsky.social slams the media's myopic view of the White House correspondents' dinner attack",
-    "expected_topics": ["White House Correspondents Dinner", "political violence", "DHS", "media criticism", "Prem Thakker"],
-    "expected_entities": ["DHS", "Prem Thakker", "Zeteo", "White House Correspondents Dinner"],
-    "must_not_contain": ["DHS agents are innocent", "no political violence occurred"],
+    "explanation": "The post shares a quote and links to an article by journalist Prem Thakker criticizing media coverage of the White House Correspondents' Dinner (WHCD) attack. The quote argues that the media's focus is myopic because DHS agents have themselves killed Americans — framing the attack on the WHCD as part of a broader pattern of political violence rather than an isolated incident. Zeteo is a progressive news outlet founded by Mehdi Hasan.",
+    "relevant_context": "The White House Correspondents' Dinner (WHCD) is an annual event in Washington D.C. where journalists and political figures gather. An 'attack' on the WHCD in 2026 refers to a specific incident at or related to the event. Prem Thakker is a journalist at Zeteo. The post alludes to DHS agents killing Americans — likely referencing incidents involving ICE or other federal law enforcement under the Trump administration during its aggressive immigration enforcement campaign in 2025-2026. Zeteo is an independent progressive journalism outlet co-founded by Mehdi Hasan.",
+    "expected_search_queries": ["White House Correspondents Dinner attack 2026", "DHS agents killed Americans 2026", "Prem Thakker Zeteo WHCD political violence"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-003",
-    "description": "Astronomy post about the Sombrero Galaxy and Andromeda collision probability",
+    "id": "3mkiddzlics27",
     "url": "https://bsky.app/profile/philplait.bsky.social/post/3mkiddzlics27",
-    "post_text": "Take a break from <waves vaguely> all this and let your brain soak up the amazingness of the Sombrero Galaxy, the stunning result of several cosmic collisions. [Also in this issue: will Andromeda really collide with us? The chance just went up.]",
-    "expected_topics": ["Sombrero Galaxy", "galaxy collision", "Andromeda", "Milky Way", "astrophysics"],
-    "expected_entities": ["Sombrero Galaxy", "Andromeda", "Phil Plait", "Bad Astronomy"],
-    "must_not_contain": ["Sombrero Galaxy is in our solar system", "collision already happened"],
+    "explanation": "The post is by astronomer and science writer Phil Plait, inviting followers to take a mental break from stressful current events and read his newsletter piece about the Sombrero Galaxy. The post teases two topics: the spectacular visual result of multiple galactic collisions that formed the Sombrero Galaxy, and a secondary story about the updated probability of the Andromeda galaxy colliding with the Milky Way. The tone is deliberately lighthearted — 'waves vaguely at all this' signals awareness of the political/news environment without engaging it.",
+    "relevant_context": "Phil Plait is an American astronomer and science communicator, known as the 'Bad Astronomer,' who writes the Bad Astronomy newsletter on Beehiiv. The Sombrero Galaxy (M104) is a spiral galaxy located about 31 million light-years away in the constellation Virgo, famous for its bright nucleus and dark dust lane giving it a sombrero hat appearance. Recent research has suggested it formed through multiple past galactic mergers. The Andromeda Galaxy (M31) is the Milky Way's nearest large neighbor and is on a collision course with our galaxy — updated orbital calculations have revised the probability or timeline of this collision.",
+    "expected_search_queries": ["Sombrero Galaxy formation cosmic collisions", "Andromeda Milky Way collision probability update", "Phil Plait Bad Astronomy newsletter"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-004",
-    "description": "Science News post about preeclampsia treatment via blood protein filtering",
+    "id": "3mkidn6eh3f2x",
     "url": "https://bsky.app/profile/sciencenews.bsky.social/post/3mkidn6eh3f2x",
-    "post_text": "Filtering a protein out of a pregnant person's blood may help ease a dangerous complication of pregnancy.",
-    "expected_topics": ["preeclampsia", "pregnancy complication", "blood protein", "medical treatment", "maternal health"],
-    "expected_entities": ["preeclampsia", "Science News"],
-    "must_not_contain": ["this is a cure", "FDA approved"],
+    "explanation": "The post announces a Science News article about a potential new treatment for preeclampsia — a dangerous pregnancy complication — that involves filtering a specific protein out of the pregnant person's blood to reduce symptoms. This is presented as a promising medical development rather than an approved treatment.",
+    "relevant_context": "Preeclampsia is a serious pregnancy complication characterized by high blood pressure and signs of organ damage, typically occurring after 20 weeks of pregnancy. It affects 5-8% of pregnancies worldwide and is a leading cause of maternal and fetal mortality. Current treatments are limited — the only definitive cure is delivery of the baby. The new approach referenced involves apheresis (blood filtering) to remove a protein implicated in the disease. Research has focused on proteins like sFlt-1, which disrupts blood vessel function. Science News is a reputable nonprofit science journalism outlet.",
+    "expected_search_queries": ["preeclampsia blood filtering protein treatment 2025", "preeclampsia new treatment apheresis", "sFlt-1 preeclampsia therapy"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-005",
-    "description": "Tech nostalgia post about the crypto/blockchain hype cycle fading - WSJ journalist",
+    "id": "3mko67wjsxk2e",
     "url": "https://bsky.app/profile/mims.bsky.social/post/3mko67wjsxk2e",
-    "post_text": "Remember when every new tech company had a blockchain and they had \"initial coin offerings\" and \"tokenomics\" was going to eat the economy and VCs switched parties and donated millions just to stop the SEC from regulating it and now you literally never hear a peep about any of it?",
-    "expected_topics": ["blockchain hype", "ICO bubble", "crypto regulation", "SEC", "venture capital", "tech cycles"],
-    "expected_entities": ["SEC", "blockchain", "ICO"],
-    "must_not_contain": ["crypto is still booming", "blockchain is mainstream"],
+    "explanation": "The post is a sardonic, nostalgic joke by tech journalist Christopher Mims about the crypto/blockchain hype cycle of the late 2010s and early 2020s. He lists hallmarks of the era — every startup having a blockchain, ICOs, 'tokenomics' — and points out how that entire discourse has completely vanished from public conversation, implicitly noting the contradiction that VCs at the time switched political affiliations and donated millions just to prevent SEC regulation of crypto, and now no one talks about it. The punchline is the absurdity of how hyped and politically active the space was compared to its current irrelevance.",
+    "relevant_context": "The crypto/blockchain boom of roughly 2017-2022 saw thousands of startups launch tokens via Initial Coin Offerings (ICOs). 'Tokenomics' referred to the economic design of cryptocurrency systems. Many venture capitalists (VCs) became major crypto advocates, with some donating heavily to political campaigns focused on blocking SEC (Securities and Exchange Commission) oversight of crypto — notably in the 2024 election cycle, when crypto PACs spent hundreds of millions of dollars. The crypto market crashed dramatically in 2022 (FTX collapse, Terra/Luna failure) and has since faded from mainstream tech discourse. Christopher Mims is a tech journalist and columnist at the Wall Street Journal.",
+    "expected_search_queries": ["crypto ICO boom collapse history", "VC crypto donations SEC regulation 2024", "blockchain hype cycle decline"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-006",
-    "description": "Sarcastic NFL post about 'woke' players - contains embedded quote post",
+    "id": "3mknpj6hudc2q",
     "url": "https://bsky.app/profile/fourverts.bsky.social/post/3mknpj6hudc2q",
-    "post_text": "the only woke (active) NFL player",
-    "expected_topics": ["NFL", "woke culture debate", "sports and politics", "player activism"],
-    "expected_entities": ["NFL"],
-    "must_not_contain": [],
+    "explanation": "The post is a sarcastic, ironic comment by NFL writer Charles McDonald about there being only one 'woke' (politically outspoken or socially conscious) active NFL player remaining. The humor relies on a quote post (embedded content not visible in plain text) that presumably shows something a specific NFL player said or did. The framing is satirical — given the NFL's history of widespread player activism (kneeling protests, BLM support), calling out 'the only woke active player' implies most players have gone quiet under current political pressure. Note: the embedded quote post content was not accessible.",
+    "relevant_context": "The NFL saw widespread player activism from 2016-2021, sparked by Colin Kaepernick's national anthem kneeling protests against police brutality. During the Trump second term beginning in 2025, many athletes and sports organizations have pulled back from public political stances amid a hostile political environment and pressure on DEI programs. Charles McDonald (fourverts) is an NFL writer for Yahoo Sports known for commentary mixing football analysis with cultural observations. The term 'woke' is used ironically here, as the post is from a progressive-leaning writer who would not use it pejoratively.",
+    "expected_search_queries": ["NFL player political activism 2026", "NFL players speaking out Trump 2025 2026"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false,
-    "notes": "Post contains an embedded quote post whose content is not visible via scraping - agent should handle missing embed context gracefully"
+    "max_bullets": 5
   },
   {
-    "id": "tc-007",
-    "description": "Wrestling industry post - TNA executive quote about talent poaching being misunderstood",
+    "id": "3mknve75mtc25",
     "url": "https://bsky.app/profile/davidbix.bsky.social/post/3mknve75mtc25",
-    "post_text": "\"And we've had some other folks come at us, and they've moved into our nights.\" OH MY GOD HE REALLY IS THAT STUPID",
-    "expected_topics": ["TNA Wrestling", "Carlos Silva", "wrestling talent deals", "TV scheduling", "wrestling industry"],
-    "expected_entities": ["TNA", "Carlos Silva", "F4WOnline"],
-    "must_not_contain": ["WWE statement", "AEW confirmed"],
+    "explanation": "The post is a reaction of disbelief and mockery by wrestling journalist David Bixenspan to a quote from TNA Wrestling president Carlos Silva. In an interview defending the controversial decision to pull TNA wrestlers from already-booked independent matches (specifically matches against AEW talent), Silva said competitors had 'moved into our nights' — a vague, confusing phrase meant to describe scheduling conflicts with rival promotions. Bixenspan's 'OH MY GOD HE REALLY IS THAT STUPID' reaction mocks Silva's inarticulate defense, highlighting the absurdity of the phrasing as a justification for a decision that angered fans, wrestlers, and promoters.",
+    "relevant_context": "TNA Wrestling is a professional wrestling promotion (formerly Impact Wrestling). In early 2026, TNA president Carlos Silva made the controversial decision to pull TNA wrestlers — including Nic Nemeth and Leon Slater — from previously approved independent show matches against AEW (All Elite Wrestling) talent, including matches against MJF and Ricochet. AEW is TNA's main competitor. MJF publicly criticized Silva. Silva defended the decision on the Busted Open Radio podcast on April 29, 2026, using the vague phrase 'they've moved into our nights' to suggest AEW had scheduled its show (Collision) in time slots competing with TNA Impact, and had allegedly tried to block TNA from arenas. The F4W/WON (Wrestling Observer) article linked in the post covers this interview. David Bixenspan is a wrestling journalist.",
+    "expected_search_queries": ["TNA Carlos Silva AEW wrestlers indie shows pulled", "TNA Nic Nemeth MJF match cancelled", "Carlos Silva Busted Open interview 2026"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-008",
-    "description": "Political opinion post about Democratic strategy to win back misinformed Trump voters",
+    "id": "3mkni62yt4s2r",
     "url": "https://bsky.app/profile/mtsw.bsky.social/post/3mkni62yt4s2r",
-    "post_text": "\"A huge number of American votes are totally misinformed about everything and were convinced to vote for Trump for totally absurd reasons\" is an opportunity, not an intractable problem. Dems need to start aggressively playing the game of winning these voters that they've ignored for decades.",
-    "expected_topics": ["Democratic Party strategy", "voter outreach", "misinformation", "Trump voters", "US politics"],
-    "expected_entities": ["Trump", "Democrats", "Democratic Party"],
-    "must_not_contain": [],
+    "explanation": "The post is a political opinion arguing that Democratic Party strategists should reframe the challenge of misinformed Trump voters as an opportunity rather than a permanent obstacle. The author contends that voters who were convinced to support Trump for bad reasons can, in principle, be won back — but only if Democrats stop ignoring them and actively compete for their votes, something the party has failed to do for decades. The tone is prescriptive and frustrated.",
+    "relevant_context": "After Donald Trump's victories in both 2024 and his earlier term, a recurring debate within Democratic circles concerns how to respond to the tens of millions of Americans who voted for Trump. One school of thought holds that many of these voters are irretrievably lost due to misinformation ecosystems (Fox News, social media). Another argues that Democrats have strategically neglected working-class and rural voters for decades, failing to build competing media infrastructure or grassroots presence, and that this neglect — not permanent ideological alignment — explains Trump's margins. This post aligns with the latter view. The account 'mtsw' posts political commentary on Bluesky.",
+    "expected_search_queries": ["Democrats strategy winning Trump voters 2026", "Democratic Party working class voter outreach"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false
+    "max_bullets": 5
   },
   {
-    "id": "tc-009",
-    "description": "Gaming deals account posting discount on Umurangi Generation Deluxe Kit",
+    "id": "3mkoabhwwz22z",
     "url": "https://bsky.app/profile/wario64.bsky.social/post/3mkoabhwwz22z",
-    "post_text": "Umurangi Generation Deluxe Kit (PS5/Switch) is $49.59/$52.40 on Amazon #ad",
-    "expected_topics": ["Umurangi Generation", "indie game", "PS5", "Nintendo Switch", "game deal"],
-    "expected_entities": ["Umurangi Generation", "Amazon", "PS5", "Switch", "Wario64"],
-    "must_not_contain": ["AAA game", "Call of Duty"],
+    "explanation": "The post is a standard deal alert from Wario64, a well-known anonymous social media account dedicated to posting video game deals and retail news. The post advertises the Umurangi Generation Deluxe Kit — a physical collector's edition of the indie game Umurangi Generation — on sale on Amazon for PS5 ($49.59) and Switch ($52.40), below the standard retail price of $69.99. The #ad tag discloses this is an affiliate link, meaning Wario64 earns a commission on purchases.",
+    "relevant_context": "Wario64 is a popular anonymous gaming deals account active on multiple social media platforms, named after Nintendo's villain character Wario. The account posts deals, restocks, and gaming news, often using Amazon affiliate links. Umurangi Generation is an award-winning indie first-person photography game developed by Origame Digital, set in a dystopian retro-future New Zealand city. Players complete photo bounties using different camera lenses and techniques. The Deluxe Kit is a physical collector's edition distributed by Serenity Forge, released in 2025 for PS5 and Nintendo Switch, including extras like a camera strap, acrylic standee, and character cards. The PS5 version also includes a PSVR2 version of the game.",
+    "expected_search_queries": ["Umurangi Generation game", "Wario64 gaming deals account"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false,
-    "notes": "Wario64 is a well-known game deals account on social media - agent should surface context about the game itself, not just the price"
+    "max_bullets": 5
   },
   {
-    "id": "tc-010",
-    "description": "Author countdown post for novel 'Blood and Roses' releasing May 20th on Amazon",
+    "id": "3mko3he27dk2a",
     "url": "https://bsky.app/profile/elfieafterdark.bsky.social/post/3mko3he27dk2a",
-    "post_text": "21... You know the drill! Checkout my website for more info on Blood and Roses, releasing May 20th on Amazon. elfieafterdark.net #Blood&Roses #writing #creativewriting #novel #writingcommunity #art #digitalart",
-    "expected_topics": ["book release", "self-publishing", "Blood and Roses", "indie author", "Amazon publishing"],
-    "expected_entities": ["Blood and Roses", "ElfieAfterDark", "Amazon"],
-    "must_not_contain": ["New York Times bestseller", "traditional publisher"],
+    "explanation": "The post is a promotional countdown post by ElfieAfterDark, an adult content creator and indie author, building anticipation for the launch of their novel 'Blood and Roses,' releasing on Amazon on May 20th. The '21...' likely refers to a countdown (21 days to release) or an age verification reminder given the account's adult content branding. The post directs followers to their website for more information and uses multiple hashtags targeting the writing and creative community.",
+    "relevant_context": "ElfieAfterDark is an adult content creator on Bluesky who also writes fiction. 'Blood and Roses' is an upcoming novel being self-published or independently released on Amazon. The account uses the 🔞 emoji indicating adult content. The post is a marketing/hype-building post typical of indie authors in the weeks before a book launch, using community hashtags like #writingcommunity and #novel to reach potential readers. The '21' at the start is most likely a countdown to the release date (21 days before May 20).",
+    "expected_search_queries": ["ElfieAfterDark Blood and Roses novel", "elfieafterdark.net"],
     "min_bullets": 3,
-    "max_bullets": 5,
-    "has_image": false,
-    "notes": "Countdown post (21 days to release) - agent should infer the countdown context and surface info about the book and author"
+    "max_bullets": 5
+  },
+  {
+    "id": "3mks5wwkhus2z",
+    "url": "https://bsky.app/profile/drleonj.bsky.social/post/3mks5wwkhus2z",
+    "explanation": "The post is expressing a simple, emotional idea: living with a happy dog can lift your mood and make it harder to feel completely sad or hopeless. The caption says that it's 'hard to fall entirely into despair' when you have a dog that is always so happy. The photo reinforces this—it's a cheerful-looking dog with a friendly, slightly goofy smile, which naturally makes people feel good. So the meaning is: even if life gets tough, the constant joy and affection from a pet (like this dog) can bring comfort and help you feel better.",
+    "relevant_context": "",
+    "expected_search_queries": [],
+    "min_bullets": 3,
+    "max_bullets": 5
+  },
+  {
+    "id": "3mknexmgu2k22",
+    "url": "https://bsky.app/profile/titaniasrealm.bsky.social/post/3mknexmgu2k22",
+    "explanation": "The post humorously expresses the urge to escape everyday life and disappear into nature, exaggerating it into the idea of becoming a mysterious 'local legend.' The image, created by Sarah Graham, reinforces this idea through her detailed, cozy, and folklore-inspired art style, featuring a cloaked mouse in a forest that evokes a whimsical, fairy-tale atmosphere.",
+    "relevant_context": "Sarah Graham is an artist known for creating detailed, cozy illustrations inspired by nature and folklore.",
+    "expected_search_queries": ["Sarah Graham"],
+    "min_bullets": 3,
+    "max_bullets": 5
   }
 ]

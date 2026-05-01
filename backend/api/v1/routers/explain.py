@@ -40,4 +40,5 @@ async def explain_post(request: ExplainRequest) -> ExplainResponse:
         ),
         bullets=[BulletPoint(text=b) for b in final_state["bullets"]],
         sources=final_state.get("sources", []),
+        search_queries=final_state.get("search_queries", []),
     )
