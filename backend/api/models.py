@@ -1,4 +1,21 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
+
+
+AVAILABLE_MODELS = [
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-4-turbo",
+    "gpt-4.1",
+    "gpt-4.1-mini",
+    "o3-mini",
+]
+
+DEFAULT_MODEL = "gpt-4o"
+
+
+class ExplainRequest(BaseModel):
+    url: HttpUrl
+    model: str = DEFAULT_MODEL
 
 
 class BulletPoint(BaseModel):

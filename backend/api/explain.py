@@ -1,10 +1,14 @@
 from fastapi import APIRouter, HTTPException
 
 from agent.graph import graph
-from schemas.request import ExplainRequest
-from schemas.response import BulletPoint, ExplainResponse, PostMeta
+from api.models import AVAILABLE_MODELS, BulletPoint, ExplainRequest, ExplainResponse, PostMeta
 
 router = APIRouter(tags=["explain"])
+
+
+@router.get("/models")
+async def list_models() -> list[str]:
+    return AVAILABLE_MODELS
 
 
 @router.post("/explain", response_model=ExplainResponse)
@@ -21,6 +25,7 @@ async def explain_post(request: ExplainRequest) -> ExplainResponse:
         "bullets": [],
         "sources": [],
         "iteration_count": 0,
+        "model": request.model,
         "error": None,
     }
 

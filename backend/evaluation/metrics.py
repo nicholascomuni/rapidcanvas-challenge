@@ -88,6 +88,30 @@ def bullet_count_score(num_bullets: int, min_bullets: int, max_bullets: int) -> 
     return 1.0 if min_bullets <= num_bullets <= max_bullets else 0.0
 
 
+_EVAL_WEIGHTS: list[tuple[str, float]] = [
+    ("bullets_explanation_similarity", 3.0),
+    ("bullets_context_similarity",     2.0),
+    ("search_query_similarity",        1.0),
+    ("citation",                       1.0),
+    ("bullet_count",                   1.0),
+    ("judge_score",                    3.0),
+]
+
+
+def evaluation_score(result: dict) -> float:
+    """Weighted mean of all available metrics for a single case result (0–1)."""
+    total_weight = 0.0
+    weighted_sum = 0.0
+    for key, weight in _EVAL_WEIGHTS:
+        v = result.get(key)
+        if v is not None:
+            weighted_sum += v * weight
+            total_weight += weight
+    if total_weight == 0:
+        return 0.0
+    return round(weighted_sum / total_weight, 4)
+
+
 def aggregate_scores(results: list[dict]) -> dict:
     """Compute mean across all cases for each numeric metric, skipping None values."""
     if not results:
@@ -99,6 +123,7 @@ def aggregate_scores(results: list[dict]) -> dict:
         "citation",
         "bullet_count",
         "judge_score",
+        "evaluation_score",
     ]
     out = {}
     for k in keys:

@@ -3,10 +3,10 @@ Evaluation harness for the Bluesky Post Explainer.
 
 Usage (standalone — just metrics, no pass/fail):
     cd backend
-    python -m tests.eval.eval_runner [--url http://localhost:8000]
+    python -m evaluation.eval_runner [--url http://localhost:8000]
 
 Exit code: 0 always when run standalone (metrics only).
-To assert against thresholds, use: pytest tests/eval/test_eval.py
+To assert against thresholds, use: pytest tests/test_eval.py
 """
 
 from __future__ import annotations
@@ -23,8 +23,8 @@ from pathlib import Path
 
 import httpx
 
-from tests.eval.judge import llm_conclusion, llm_judge, make_judge_client
-from tests.eval.metrics import (
+from evaluation.judge import llm_conclusion, llm_judge, make_judge_client
+from evaluation.metrics import (
     aggregate_scores,
     bullet_count_score,
     bullets_context_similarity,
@@ -98,7 +98,6 @@ def _print_case_summary(case_id: str, metrics: dict, judge: dict) -> None:
             score = entry
             reason = ""
         bar = _bar(score, max_value=5) if isinstance(score, (int, float)) else "N/A"
-        # truncate reason to fit terminal
         reason_short = (reason[:60] + "…") if len(reason) > 61 else reason
         print(f"│    {dim:<26} {bar}  {reason_short}")
     print(f"└{'─' * 60}")
@@ -112,8 +111,7 @@ def _print_aggregate_table(agg: dict) -> None:
     print(f"  {'Metric':<{col_w}} {'Bar':<{_BAR_WIDTH + 5}} Score")
     print("  " + "─" * 68)
     for k, v in agg.items():
-        max_v = 1.0
-        print(f"  {k:<{col_w}} {_bar(v, max_value=max_v)}")
+        print(f"  {k:<{col_w}} {_bar(v, max_value=1.0)}")
     print("═" * 70)
 
 
