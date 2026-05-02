@@ -246,7 +246,6 @@ export function EvalDashboard({ models }: { models: string[] }) {
         } else if (event.event === 'conclusion_start') {
           setRun(s => ({ ...s, phase: 'Generating conclusion…' }))
         } else if (event.event === 'done') {
-          const active = partialCases.filter(c => !c.skipped)
           setReport({ aggregate: event.data.aggregate, cases: partialCases, conclusion: event.data.conclusion })
           setRun({ status: 'done', progress: null, phase: 'Complete', error: null })
         }
