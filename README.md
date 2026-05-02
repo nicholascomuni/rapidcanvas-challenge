@@ -204,9 +204,9 @@ The **Hungarian matching** for query similarity finds the optimal one-to-one pai
 
 #### LLM-as-judge (`gpt-4o-mini`)
 
-Seven dimensions, each scored 1–5 with a one-sentence reason:
+Seven metrics, each scored 1–5 with a one-sentence reason:
 
-| Dimension | What it checks |
+| Metric | What it checks |
 |-----------|---------------|
 | `explanation_relevance` | Bullets cover the key ideas of the reference explanation without off-topic content |
 | `faithfulness` | Claims are supported by sources and post text — no hallucinations |
@@ -218,7 +218,7 @@ Seven dimensions, each scored 1–5 with a one-sentence reason:
 
 The judge is calibrated to be strict: 3 is the default for adequate-but-unremarkable work; 4–5 must be genuinely earned; 1–2 when the output fails its basic purpose in that dimension.
 
-**`judge_score`** = mean of all 7 dimension scores, normalised to 0–1 (divides by 5).
+**`judge_score`** = mean of all 7 metrics scores, normalised to 0–1 (divides by 5).
 
 #### Composite evaluation score
 
@@ -305,7 +305,7 @@ Bluesky-specific logic is isolated behind a `PostFetcher` protocol in `agent/fet
 
 ### Docker Compose on AWS EC2
 
-The simplest production-ready setup: one EC2 instance, two containers (backend + nginx), no managed services needed.
+The simplest setup: one EC2 instance, two containers (backend + nginx), no managed services needed.
 
 ```bash
 # 1. Launch EC2 (Amazon Linux 2023, t3.small minimum)
