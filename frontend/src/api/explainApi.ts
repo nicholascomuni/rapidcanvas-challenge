@@ -1,10 +1,16 @@
 import type { ExplainResponse } from '../types'
 
-export async function explainPost(url: string): Promise<ExplainResponse> {
+export async function fetchModels(): Promise<string[]> {
+  const res = await fetch('/api/v1/models')
+  if (!res.ok) return []
+  return res.json()
+}
+
+export async function explainPost(url: string, model: string): Promise<ExplainResponse> {
   const res = await fetch('/api/v1/explain', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url }),
+    body: JSON.stringify({ url, model }),
   })
 
   if (!res.ok) {

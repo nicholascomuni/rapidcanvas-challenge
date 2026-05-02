@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 
 const STEPS = [
   'Fetching post from Bluesky…',
+  'Analyzing post & image…',
   'Generating search queries…',
   'Searching the web…',
-  'Reranking results…',
   'Synthesizing explanation…',
 ]
 

@@ -1,6 +1,8 @@
-import truststore
-# Use the Windows native certificate store (includes corporate proxy/Zscaler certs).
-truststore.inject_into_ssl()
+try:
+    import truststore
+    truststore.inject_into_ssl()
+except ModuleNotFoundError:
+    pass
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware

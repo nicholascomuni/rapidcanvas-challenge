@@ -22,11 +22,13 @@ frontend/.vite/
 *.swp
 
 # Eval output
-backend/tests/eval/eval_report.json
+backend/eval/eval_report.json
 
 # OS
 .DS_Store
 Thumbs.db
 
+# Project-specific secrets / assignment files
+.claude/
 challenge_description.md
 RC_assignment.pdf
